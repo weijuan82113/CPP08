@@ -1,5 +1,4 @@
-NAME = Mutated_abomination
-
+NAME = Mutated_stack
 # COMPILE FLAGS
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
