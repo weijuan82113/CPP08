@@ -18,11 +18,22 @@ int main() {
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
     --it;
+    int cout = 0;
     while (it != ite) {
         std::cout << *it << std::endl;
         ++it;
+        cout ++;
     }
-
+    std::cout << "------test stack(mutant copy)------" << std::endl;
     std::stack<int> s(mstack);
+    // while (s.top()) {
+    //     std::cout << s.top() << std::endl;
+    //     s.pop();
+    // }
+    for (int i = 0; i < cout; i ++)
+    {
+        std::cout << s.top() << std::endl;s.pop();
+    }
+    std::cout << "------test stack(mutant copy)------" << std::endl;
     return 0;
 }
