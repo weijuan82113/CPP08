@@ -4,7 +4,8 @@
 
 // Test code
 int main() {
-    std::stack<int, std::deque<int> > mstack;
+    //declare the mutant stack with explicit uderlying container
+    MutantStack<int, std::deque<int> > mstack;
     std::cout << "push: 5 \n";
     mstack.push(5);
     std::cout << "push: 17 \n";
@@ -37,8 +38,9 @@ int main() {
     }
     std::cout << "-----back-----" << std::endl;
     std::cout << "-----mutant stack(print by iterator)-----\n\n" << std::endl;
-    std::stack<int> s(mstack);
-    std::cout << "-----mutant_stack(copy)-----" << std::endl;
+    //copy the mutant stack into default uderlying container
+    MutantStack<int> s(mstack);
+    std::cout << "-----mutant_stack(copy to default declare)-----" << std::endl;
     std::cout << "-----top-----" << std::endl;
     for (int i = 0; i < count; i ++)
     {
@@ -46,6 +48,6 @@ int main() {
         s.pop();
     }
     std::cout << "-----bottom-----" << std::endl;
-    std::cout << "------mutant_stack(copy)------" << std::endl;
+    std::cout << "------mutant_stack(copy to default declare)------" << std::endl;
     return 0;
 }
