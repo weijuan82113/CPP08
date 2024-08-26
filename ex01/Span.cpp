@@ -20,7 +20,7 @@ void Span::addNumber(int number)
 	numbers_.push_back(number);
 };
 
-int Span::shortestSpan() const
+unsigned int Span::shortestSpan() const
 {
 	if (numbers_.size() < 2)
 		throw std::logic_error("Cannot find a span in less than 2 numbers.");
@@ -28,17 +28,17 @@ int Span::shortestSpan() const
 	std::sort(sorted_numbers.begin(), sorted_numbers.end());
 
 	//compare the interval within the stored numbers;
-	int min_span = sorted_numbers[1] - sorted_numbers[0];
+	unsigned int min_span = getSpan(sorted_numbers[1], sorted_numbers[0]);
 	for (size_t i = 1; i < sorted_numbers.size() - 1; i ++)
 	{
-		int span = sorted_numbers[i + 1] - sorted_numbers[i];
+		unsigned int span = getSpan(sorted_numbers[i + 1], sorted_numbers[i]);
 		if (span < min_span)
 			min_span = span;
 	}
 	return min_span;
 };
 
-int Span::longestSpan() const
+unsigned int Span::longestSpan() const
 {
 	if (numbers_.size() < 2)
 		throw std::logic_error("Cannot find a span in less than 2 numbers.");
@@ -46,10 +46,32 @@ int Span::longestSpan() const
 	//max_span equal the biggest number - smallest number;
 	int max_number = *std::max_element(numbers_.begin(), numbers_.end());
 	int min_number = *std::min_element(numbers_.begin(), numbers_.end());
-	return max_number - min_number;
+
+	return getSpan(max_number,min_number);
 }
 
 const std::vector<int> Span::getNumbers() const
 {
 	return numbers_;
+}
+
+void Span::swap(int& x, int& y)
+{
+	int tmp;
+	tmp = y;
+	y = x;
+	x = tmp;
+}
+
+unsigned int Span::getSpan(int x, int y)
+{
+	//confirm x is smaller or equal to y
+	if (x > y)
+		swap(x,y);
+	unsigned int uint_x = static_cast<unsigned int>(x);
+	unsigned int uint_y = static_cast<unsigned int>(y);
+	unsigned int uint_int_max = static_cast<unsigned int>(std::numeric_limits<int>::max());
+	if (uint_x + uint_y > uint_int_max)
+		return uint_y - uint_x;
+	return y - x;
 }

@@ -4,6 +4,9 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <limits>
+//test utils
+#include <iostream>
 
 class Span {
 	public:
@@ -12,8 +15,8 @@ class Span {
 		Span(const Span& sp);
 		Span& operator=(const Span& sp);
 		void addNumber(int number);
-		int shortestSpan() const;
-		int longestSpan() const;
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
 		const std::vector<int> getNumbers() const;
 		template <typename T>
 		void addNumbers(T begin, T end);
@@ -22,6 +25,9 @@ class Span {
 		Span();
 		std::vector<int> numbers_;
 		unsigned int max_size_;
+		static void swap(int& x, int& y);
+		// unsigned getSpan(int a, intb)をつくる　span > INT_MAXの考慮をする
+		static unsigned int getSpan(int x, int y);
 };
 
 template <typename T>
