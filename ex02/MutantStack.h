@@ -4,7 +4,8 @@
 #include <stack>
 #include <deque>
 
-//Mutanttack<int, std::list<int>> st;
+//Can declare Mutanttack<int, std::list<int>> st; but default is std::deque<T>
+//so Mutanttack<int> is use std::deque<T> for underlying base
 template<typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container> {
 public:

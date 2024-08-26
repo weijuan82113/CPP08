@@ -26,10 +26,6 @@ int main() {
     }
     std::cout << "------test stack(mutant copy)------" << std::endl;
     std::stack<int> s(mstack);
-    // while (s.top()) {
-    //     std::cout << s.top() << std::endl;
-    //     s.pop();
-    // }
     for (int i = 0; i < cout; i ++)
     {
         std::cout << s.top() << std::endl;s.pop();
