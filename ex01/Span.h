@@ -5,8 +5,6 @@
 #include <algorithm>
 #include <stdexcept>
 #include <limits>
-//test utils
-#include <iostream>
 
 class Span {
 	public:
