@@ -16,7 +16,7 @@ int main()
 	//-----use easyfind to change a value by iterator
 	try
 	{
-		std::vector<int>::iterator change_it = ::easyfind(vec, value_to_change);
+		std::vector<int>::iterator change_it = easyfind(vec, value_to_change);
 		*change_it = 4;
 		std::cout << "after changing value by easyfind() \n <vec>" << std::endl;
 		printElement(vec.begin(), vec.end());
@@ -29,7 +29,7 @@ int main()
 	try
 	{
 		std::cout << "value_to_find: " << value_to_find << std::endl;
-		std::cout << "Vector: " << *::easyfind(vec, value_to_find) << std::endl;
+		std::cout << "Vector: " << *easyfind(vec, value_to_find) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -62,10 +62,10 @@ int main()
 	try
 	{
 		std::cout << "Print finded value: " << std::endl;
-		std::cout << "Vector: " << *::easyfind(const_vec, value_to_find) << std::endl;
-		std::cout << "List: " << *::easyfind(const_lst, value_to_find) << std::endl;
-		std::cout << "Deque: " << *::easyfind(const_deq, value_to_find) << std::endl;
-		std::cout << "Set: " << *::easyfind(const_st, value_to_find) << std::endl;
+		std::cout << "Vector: " << *easyfind(const_vec, value_to_find) << std::endl;
+		std::cout << "List: " << *easyfind(const_lst, value_to_find) << std::endl;
+		std::cout << "Deque: " << *easyfind(const_deq, value_to_find) << std::endl;
+		std::cout << "Set: " << *easyfind(const_st, value_to_find) << std::endl;
 	}
 	catch(const std::exception& e)
 	{

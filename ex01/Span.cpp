@@ -71,6 +71,7 @@ unsigned int Span::getSpan(int x, int y)
 	unsigned int uint_x = static_cast<unsigned int>(x);
 	unsigned int uint_y = static_cast<unsigned int>(y);
 	unsigned int uint_int_max = static_cast<unsigned int>(std::numeric_limits<int>::max());
+	//x + yの絶対値がint_maxを超えた場合
 	if (uint_x + uint_y > uint_int_max)
 		return uint_y - uint_x;
 	return y - x;

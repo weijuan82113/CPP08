@@ -5,7 +5,7 @@
 #include <iostream> // for std::cout
 
 template <typename T>
-typename T::iterator easyfind(T& container, int value)
+static typename T::iterator easyfind(T& container, int value)
 {
 	typename T::iterator it = std::find(container.begin(), container.end(), value);
 	if (it == container.end())
@@ -14,7 +14,7 @@ typename T::iterator easyfind(T& container, int value)
 };
 
 template <typename T>
-typename T::const_iterator easyfind(const T& container, int value)
+static typename T::const_iterator easyfind(const T& container, int value)
 {
 	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
 	if (it == container.end())
@@ -23,7 +23,7 @@ typename T::const_iterator easyfind(const T& container, int value)
 };
 
 template <typename Iterator>
-void printElement(Iterator begin, Iterator end)
+static void printElement(Iterator begin, Iterator end)
 {
 	for (Iterator it = begin; it != end; it++)
 	{
